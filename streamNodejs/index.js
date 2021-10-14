@@ -9,17 +9,18 @@ server.on("request", (req, res) => {
 //     res.end(data);
 //   });
     const rstream=fs.createReadStream("readFile.txt");
-    rstream.on("data",(chunk)=>{
-        res.write(chunk);
-    })
+    // rstream.on("data",(chunk)=>{
+    //     res.write(chunk);
+    // })
 
-    rstream.on("end",()=>{
-        res.end();
-    })
+    // rstream.on("end",()=>{
+    //     res.end();
+    // })
 
-    rstream.on("error",(err)=>{
-        console.log(err);
-    })
+    // rstream.on("error",(err)=>{
+    //     console.log(err);
+    // })
+    rstream.pipe(res);
 
 });
 
